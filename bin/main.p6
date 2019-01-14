@@ -2,8 +2,14 @@
 #main.p6
 
 use lib '../lib';
-#use MeasureModule;
-use MeasureModuleXXX;
+
+# to test when MeasureModule not installed, do this vvv and adjust top lie of the .pm6 file 
+#mv MeasureModule.pm6 MeasureModuleXXX.pm6
+#comment out vvv
+use MeasureModule;
+#uncomment vvv
+#use MeasureModuleXXX;
+
 use PolygonsModule;
 
 my $x = Measure.new( value => 10, unit => 'm' );

@@ -1,13 +1,15 @@
 unit module PolygonsModule;
 
-#use MeasureModule;                #only if Measure is installed
-#require MeasureModule;
-#require MeasureModule qw{Measure &infix:<*>};
-my $load-ok = try require MeasureModuleXXX;                  
-say "$load-ok";
-#iamerejh
-#try require MeasureModule;                  say $!;
-#try require MeasureModule qw{&infix:<*>};  #say $!;
+#If MeasureModule present...
+#use MeasureModule;                             #works
+#require MeasureModule qw{&infix:<*>};          #works
+try require MeasureModule qw{&infix:<*>};      #works
+
+#try require MeasureModule;
+#->Cannot resolve caller Numeric(MeasureModule::Measure: ); none of these signatures match: (Mu:U \v: *%_) in method area
+
+#my &infix:<*> := &MeasureModule::infix:<*> if try require MeasureModule;
+#->Cannot invoke this object (REPR: Null; VMNull)
 
 class Rectangle is export {
     has $.width;
